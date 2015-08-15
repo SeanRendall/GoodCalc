@@ -149,6 +149,7 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', function($sco
 	   }).error(function(data, status, headers, config) {
 	    	 console.log('LOAD ERROR');
 	    });
+	  $scope.apply();
   }
   
   $scope.deleteSave = function(){
