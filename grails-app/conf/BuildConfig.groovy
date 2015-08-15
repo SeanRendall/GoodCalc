@@ -60,6 +60,7 @@ grails.project.dependency.resolution = {
         build ":tomcat:7.0.55"
 
         // plugins for the compile step
+		compile ":cloud-support:1.0.8"
 		compile ':heroku:1.0'
         compile ":scaffolding:2.1.2"
         compile ':cache:1.1.8'
