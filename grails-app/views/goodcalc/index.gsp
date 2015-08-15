@@ -3,7 +3,7 @@
 	<head>
 	<asset:javascript src="app.js"/>
 	<asset:stylesheet href="styles.css"/>
-	<asset:image rel="shortcut icon" href="favicalc.ico" type="image/x-icon"/>
+	<asset:link rel="shortcut icon" href="favicalc.ico" type="image/x-icon"/>
 	<title> GoodCalc </title>
 	<meta name="viewport" >
 	<meta charset="utf-8">
