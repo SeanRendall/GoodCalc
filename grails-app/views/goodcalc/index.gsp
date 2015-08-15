@@ -10,7 +10,7 @@
 	</head>
 	<body ng-controller="calcCtrl">
 		<div class="container-fluid wrapper">
-			<header><img id="headerImg" src="calculator.png"/></header>
+			<header><asset:image src="calculator.png" width="70" height="70" id="headerImg"/></header>
 			<span></span>
 				<div class="row content">
 					<div class="col-lg-5">

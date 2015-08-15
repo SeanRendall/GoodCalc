@@ -404,3 +404,47 @@ Caused by: org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException: 
 	at C__Users_Sean_Documents_workspace_ggts_3_6_4_RELEASE_goodcalc_grails_app_views_goodcalc_index_gsp$_run_closure1.doCall(index.gsp:6)
 	at C__Users_Sean_Documents_workspace_ggts_3_6_4_RELEASE_goodcalc_grails_app_views_goodcalc_index_gsp.run(index.gsp:10)
 	... 5 more
+2015-08-15 23:19:38,913 [Thread-10] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'cacheOperationSource' on null object
+	at org.codehaus.groovy.runtime.NullObject.getProperty(NullObject.java:57)
+	at org.codehaus.groovy.runtime.InvokerHelper.getProperty(InvokerHelper.java:168)
+	at org.codehaus.groovy.runtime.callsite.NullCallSite.getProperty(NullCallSite.java:44)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callGetProperty(AbstractCallSite.java:227)
+	at CacheGrailsPlugin$_closure4$$EPLTGh3r.doCall(CacheGrailsPlugin.groovy:184)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springsource.loaded.ri.ReloadedTypeInvoker$2.invoke(ReloadedTypeInvoker.java:122)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1299)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:324)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1207)
+	at groovy.lang.ExpandoMetaClass.invokeMethod(ExpandoMetaClass.java:1110)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1016)
+	at groovy.lang.Closure.call(Closure.java:423)
+	at CacheGrailsPlugin$_closure4.call(CacheGrailsPlugin.groovy)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.invokeOnChangeListener(DefaultGrailsPlugin.java:767)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.notifyOfEvent(DefaultGrailsPlugin.java:716)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPluginManager.informObservers(DefaultGrailsPluginManager.java:242)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.notifyOfEvent(DefaultGrailsPlugin.java:732)
+	at org.codehaus.groovy.grails.plugins.AbstractGrailsPluginManager.informOfClassChange(AbstractGrailsPluginManager.java:408)
+	at org.codehaus.groovy.grails.plugins.AbstractGrailsPluginManager.informOfFileChange(AbstractGrailsPluginManager.java:366)
+	at org.codehaus.groovy.grails.project.compiler.GrailsProjectWatcher.informPluginManager(GrailsProjectWatcher.java:226)
+	at org.codehaus.groovy.grails.project.compiler.GrailsProjectWatcher.access$400(GrailsProjectWatcher.java:48)
+	at org.codehaus.groovy.grails.project.compiler.GrailsProjectWatcher$1.onNew(GrailsProjectWatcher.java:152)
+	at org.codehaus.groovy.grails.compiler.AbstractDirectoryWatcher.fireOnNew(AbstractDirectoryWatcher.java:76)
+	at org.codehaus.groovy.grails.compiler.PollingDirectoryWatcher.cacheFilesForDirectory(PollingDirectoryWatcher.java:107)
+	at org.codehaus.groovy.grails.compiler.PollingDirectoryWatcher.checkForNewFiles(PollingDirectoryWatcher.java:87)
+	at org.codehaus.groovy.grails.compiler.PollingDirectoryWatcher.run(PollingDirectoryWatcher.java:45)
+	at org.codehaus.groovy.grails.compiler.DirectoryWatcher.run(DirectoryWatcher.java:154)
+	at org.codehaus.groovy.grails.project.compiler.GrailsProjectWatcher.run(GrailsProjectWatcher.java:161)
+2015-08-15 23:19:38,922 [Thread-10] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'cacheOperationSource' on null object
+	at CacheGrailsPlugin$_closure4$$EPLTGh3r.doCall(CacheGrailsPlugin.groovy:184)
+2015-08-15 23:19:38,922 [Thread-10] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'cacheOperationSource' on null object
+	at CacheGrailsPlugin$_closure4$$EPLTGh3r.doCall(CacheGrailsPlugin.groovy:184)
+2015-08-15 23:19:38,922 [Thread-10] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'cacheOperationSource' on null object
+	at CacheGrailsPlugin$_closure4$$EPLTGh3r.doCall(CacheGrailsPlugin.groovy:184)

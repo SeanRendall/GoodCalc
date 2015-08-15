@@ -7,7 +7,8 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
+        "/" ( controller:'goodcalccontroller', view:'/goodcalc/index' )
+		
         "500"(view:'/error')
 		
 		"/sum" (controller: sum){
