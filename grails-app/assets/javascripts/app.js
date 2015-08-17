@@ -141,16 +141,16 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', function($sco
 
 //This function retrieves sums from the web server.
   $scope.retrieveSums = function(){
-	  console.log('LOAD');
-	  $http.get('/sum/list').success(function(data, status, headers, config) {
-		  console.log(data);
-		  $scope.sums = data;
-		  $scope.$apply();
-		  console.log(data);
-	   }).error(function(data, status, headers, config) {
-	    	 console.log('LOAD ERROR');
-	    });
-  }
+		  console.log('LOAD');
+		  $http.get('/sum/list').success(function(data, status, headers, config) {
+			  console.log(data);
+			  $scope.sums = data;
+			  $scope.$apply();
+			  console.log(data);
+		   }).error(function(data, status, headers, config) {
+		    	 console.log('LOAD ERROR');
+		    });
+  	}
   
   $scope.deleteSave = function(){
 	    $http.delete('/sum/deleteall');
