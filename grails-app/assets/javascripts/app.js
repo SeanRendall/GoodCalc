@@ -23,15 +23,22 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$interval', 
   
 //Add digit is used to type numbers in. The userTyping variable is used to determine if the user is adding more digits or typing a new number.
   $scope.addDigit = function(num){
-  	if (!$scope.userTyping) {
+	  if (!$scope.userTyping) {
 			$scope.digit = num;
 			$scope.userTyping = true;
+	  }
+	  else {
+		   $scope.digit = $scope.digit + "" + num;
 	}
-	else {
-	    $scope.digit = $scope.digit + "" + num;
-	}
-  $scope.preview();
-}
+	$scope.preview();
+  }
+  
+  $scope.addDot = function(){
+	  n = $scope.digit.toString();
+	  if(n.indexOf(".") == -1){
+		  $scope.digit = $scope.digit + ".";
+	  }
+  }
 
 //Enter is used to add new items to the stack when a new operand or digit is entered.
 	$scope.enter = function(){
@@ -61,9 +68,9 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$interval', 
 	$scope.equals = function(){
 		if($scope.operandStack.length >= 2){
 			$scope.enter();
-			var x = $scope.operandStack.pop();
+			var x = parseFloat($scope.operandStack.pop());
 			var op = $scope.operandStack.pop();
-			var y = $scope.operandStack.pop();
+			var y = parseFloat($scope.operandStack.pop());
 			$scope.digit = $scope.operate(op, x, y);
 			if(op === "-" || op === "/"){$scope.saveSum(y, x, $scope.digit, op); }
 			else {$scope.saveSum(y, x, $scope.digit, op);}
@@ -132,7 +139,6 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$interval', 
 //The formatted sum is then sent using $http.post to the REST api? I'm not entirely sure what is happening with the data here.
   $scope.saveSums = function(){
 	  $http.post('sum/create', $scope.sum).success(function(data, status, headers, config) {
-	  console.log('SAVE');
 	  $scope.retrieveSums();
 	     }).error(function(data, status, headers, config) {
 	    	 console.log('SAVE ERROR');
@@ -141,9 +147,7 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$interval', 
 
 //This function retrieves sums from the web server.
   $scope.retrieveSums = function(){
-		  console.log('LOAD');
 		  $http.get('sum/list').success(function(data, status, headers, config) {
-			  console.log(data);
 			  if($scope.sums.length != data.length){
 				  $scope.sums = data;
 			  }
