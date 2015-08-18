@@ -144,7 +144,7 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$timeout', f
 		  $http.get('sum/list').success(function(data, status, headers, config) {
 			  console.log(data);
 			  $scope.sums = data;
-			  $timeout($scope.retrieveSums, 5000);
+			  $timeout($scope.retrieveSums, 300);
 		   }).error(function(data, status, headers, config) {
 		    	 console.log('LOAD ERROR');
 		    });
