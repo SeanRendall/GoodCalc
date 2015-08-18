@@ -14,7 +14,7 @@ console.log("angrailsfest load complete.");
 var calculator = angular.module('calculator', ['ngAnimate']);
 
 //Create the controller with the required dependancy injections.
-calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$timeout', function($scope, $http, $location, $timeout) {
+calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$interval', function($scope, $http, $location, $interval) {
   $scope.digit = 0;
   $scope.operandStack = [];
   $scope.userTyping = false;
@@ -144,7 +144,6 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$timeout', f
 		  $http.get('sum/list').success(function(data, status, headers, config) {
 			  console.log(data);
 			  $scope.sums = data;
-			  $timeout($scope.retrieveSums, 2000);
 		   }).error(function(data, status, headers, config) {
 		    	 console.log('LOAD ERROR');
 		    });
@@ -161,7 +160,7 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$timeout', f
   }
   
 //Call when controller is created.
-  $scope.retrieveSums();
+  $interval($scope.retrieveSums, 2000);
 
 //Clears the stack, and the currently typed numbers.
 	$scope.clear = function(){
