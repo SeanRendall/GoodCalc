@@ -179,11 +179,12 @@ block[sum] {
     overflow-x:auto;
 }
 
-/*
+
 li {
     opacity: 1;
     padding: 5px;
 }
+/*
 li.ng-enter {
     -webkit-transition: 1s;
     transition: 1s;
