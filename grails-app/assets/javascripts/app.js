@@ -1,7 +1,7 @@
 //////////////////////////////////////////
 	/*Calculator app by Sean Rendall*/
 //////////////////////////////////////////
-
+//= require BigInt_BigRat.min
 //= require jquery
 //= require bootstrap
 //= require angular/angular
@@ -68,10 +68,12 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$interval', 
 	$scope.equals = function(){
 		if($scope.operandStack.length >= 2){
 			$scope.enter();
-			var x = parseFloat($scope.operandStack.pop());
+			var x = bigRat($scope.operandStack.pop());
 			var op = $scope.operandStack.pop();
-			var y = parseFloat($scope.operandStack.pop());
-			$scope.digit = $scope.operate(op, x, y);
+			var y = bigRat($scope.operandStack.pop());
+			var answer = $scope.operate(op, x, y);
+			$scope.digit = bigRat(answer).toDecimal(14);
+			console.log($scope.operate(op, x, y));
 			if(op === "-" || op === "/"){$scope.saveSum(y, x, $scope.digit, op); }
 			else {$scope.saveSum(y, x, $scope.digit, op);}
 		}
@@ -83,16 +85,16 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$interval', 
 	$scope.operate = function(operand, x, y){
 		switch(operand){
 			case "x":
-				return x*y;
+				return bigRat(x).multiply(y);
 				break;
 			case "-":
-				return y-x;
+				return bigRat(y).subtract(x);
 				break;
 			case "/":
-				return y/x;
+				return bigRat(y).divide(x);
 				break;
 			case "+":
-				return parseFloat(x) + parseFloat(y);
+				return bigRat(x).add(y);
 				break;
 			default: break;
 		}
