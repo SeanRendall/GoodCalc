@@ -42,6 +42,14 @@ body {
     background: #478AED;
 }
 
+.btn.delete {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: 50%;
+	margin-bottom: auto;
+}
+
 .btn.clear {
     color: #ffffff;
     background: #FF0000;
@@ -104,7 +112,7 @@ header {
     display: block;
     margin-left: auto;
     margin-right: auto;
-
+	margin-top: auto;
 }
 
 span {
