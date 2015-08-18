@@ -19,6 +19,7 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$interval', 
   $scope.operandStack = [];
   $scope.userTyping = false;
   $scope.livePreview = 0;
+  $scope.sums = {};
   
 //Add digit is used to type numbers in. The userTyping variable is used to determine if the user is adding more digits or typing a new number.
   $scope.addDigit = function(num){
@@ -143,7 +144,9 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$interval', 
 		  console.log('LOAD');
 		  $http.get('sum/list').success(function(data, status, headers, config) {
 			  console.log(data);
-			  $scope.sums = data;
+			  if($scope.sums.length != data.length){
+				  $scope.sums = data;
+			  }
 		   }).error(function(data, status, headers, config) {
 		    	 console.log('LOAD ERROR');
 		    });
@@ -155,12 +158,12 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$interval', 
   }
   
   $scope.remove = function(index) {
-	  $http.delete('/sum/delete/' + index);
+	  $http.delete('sum/delete/' + index);
 	  $scope.retrieveSums();
   }
   
 //Call when controller is created.
-  $interval($scope.retrieveSums, 2000);
+  $interval($scope.retrieveSums, 1000);
 
 //Clears the stack, and the currently typed numbers.
 	$scope.clear = function(){
