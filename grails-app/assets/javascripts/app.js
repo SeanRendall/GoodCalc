@@ -132,7 +132,7 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$timeout', f
   $scope.saveSums = function(){
 	  $http.post('/sum/create', $scope.sum).success(function(data, status, headers, config) {
 	  console.log('SAVE');
-	  //$scope.retrieveSums();
+	  $scope.retrieveSums();
 	     }).error(function(data, status, headers, config) {
 	    	 console.log('SAVE ERROR');
 	    });
@@ -144,24 +144,25 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$timeout', f
 		  $http.get('/sum/list').success(function(data, status, headers, config) {
 			  console.log(data);
 			  $scope.sums = data;
+			  
 		   }).error(function(data, status, headers, config) {
 		    	 console.log('LOAD ERROR');
 		    });
+		  $timeout(retrieveSums, 5000);
   	}
   
   $scope.deleteSave = function(){
 	    $http.delete('/sum/deleteall');
-	    //$scope.retrieveSums();
+	    $scope.retrieveSums();
   }
   
   $scope.remove = function(index) {
 	  $http.delete('/sum/delete/' + index);
-	  //$scope.retrieveSums();
+	  $scope.retrieveSums();
   }
   
 //Call when controller is created.
   $scope.retrieveSums();
-  $timeout(retrieveSums, 5000);
 
 //Clears the stack, and the currently typed numbers.
 	$scope.clear = function(){
