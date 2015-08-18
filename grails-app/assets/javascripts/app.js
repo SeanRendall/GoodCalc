@@ -151,7 +151,7 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$timeout', f
   	}
   
   $scope.deleteSave = function(){
-	    $http.delete('/sum/deleteall');
+	    $http.delete('sum/deleteall');
 	    $scope.retrieveSums();
   }
   
