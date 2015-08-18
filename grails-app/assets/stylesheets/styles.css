@@ -179,6 +179,7 @@ block[sum] {
     overflow-x:auto;
 }
 
+/*
 li {
     opacity: 1;
     padding: 5px;
@@ -191,3 +192,4 @@ li.ng-enter {
 li.ng-enter-active {
     opacity: 1;
 }
+*/

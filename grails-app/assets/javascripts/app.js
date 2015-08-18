@@ -14,7 +14,7 @@ console.log("angrailsfest load complete.");
 var calculator = angular.module('calculator', ['ngAnimate']);
 
 //Create the controller with the required dependancy injections.
-calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$timeout', function($scope, $http, $location) {
+calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$timeout', function($scope, $http, $location, $timeout) {
   $scope.digit = 0;
   $scope.operandStack = [];
   $scope.userTyping = false;
@@ -130,7 +130,7 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$timeout', f
 
 //The formatted sum is then sent using $http.post to the REST api? I'm not entirely sure what is happening with the data here.
   $scope.saveSums = function(){
-	  $http.post('/sum/create', $scope.sum).success(function(data, status, headers, config) {
+	  $http.post('sum/create', $scope.sum).success(function(data, status, headers, config) {
 	  console.log('SAVE');
 	  $scope.retrieveSums();
 	     }).error(function(data, status, headers, config) {
@@ -141,14 +141,13 @@ calculator.controller('calcCtrl', ['$scope', '$http', '$location', '$timeout', f
 //This function retrieves sums from the web server.
   $scope.retrieveSums = function(){
 		  console.log('LOAD');
-		  $http.get('/sum/list').success(function(data, status, headers, config) {
+		  $http.get('sum/list').success(function(data, status, headers, config) {
 			  console.log(data);
 			  $scope.sums = data;
-			  
+			  $timeout($scope.retrieveSums, 5000);
 		   }).error(function(data, status, headers, config) {
 		    	 console.log('LOAD ERROR');
 		    });
-		  $timeout(retrieveSums, 5000);
   	}
   
   $scope.deleteSave = function(){
