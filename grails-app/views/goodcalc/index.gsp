@@ -33,8 +33,8 @@
 						    <block><button name="n1" class="btn" ng-click="addDigit(1)">1</button></block>
 						    <block v2=""><button name="nPlus" class="btn blue" ng-click="addOperand('+')">+</button></block>				    
 						 	<block><button name="nSign" class="btn" ng-click="sign()">±</button></block>
-							<block><button name="nMult" class="btn" ng-click="square()">√</button></block>
 							<block><button name="n0" class="btn" ng-click="addDigit(0)">0</button></block> 
+							<block><button name="nMult" class="btn" ng-click="square()">√</button></block>
 							<block><button name="nE" class="btn equals" ng-click="equals()">=</button></block>
 							<block><button name="nDot" class="btn" ng-click="addDot()">.</button></block> 
 						    <block><button name="nClr" class="btn clear" ng-click="clear()">C</button></block>	
