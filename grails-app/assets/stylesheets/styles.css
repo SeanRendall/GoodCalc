@@ -106,8 +106,7 @@ footer {
 
 ul{
     list-style:none;
-    max-height:500px;
-    overflow:hidden;
+    max-height:800px;
     overflow-y:auto;
 }
 
