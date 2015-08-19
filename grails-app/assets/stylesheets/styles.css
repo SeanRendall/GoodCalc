@@ -49,7 +49,7 @@ footer {
 }
 
 .btn {
-    font-family: Arial;
+    font-family: Calibri;
     font-size: 50px;
     text-decoration: none;
     background: #E6E6E6;
@@ -88,16 +88,8 @@ footer {
     background: #D1873E;
 }
 
-.sumList {
-    list-style: none;
-    font-size: 30px;
-    font-family: Arial;
-    text-decoration: none;
-    color: #5aa1d1;
-}
-
 .saveB {
-    font-family: Arial;
+    font-family: Calibri;
     color: #ffffff;
     font-size: 30px;
     text-decoration: none;
@@ -109,7 +101,7 @@ footer {
 }
 
 .btn.clear {
-    font-size: 16px;
+    font-size: 50px;
 }
 
 ul{
@@ -173,10 +165,13 @@ block[sum] {
     overflow-x:auto;
 }
 
-
 li {
     opacity: 1;
     padding: 5px;
+    list-style: none;
+    font-size: 30px;
+    font-family: Calibri;
+    text-decoration: none;
 }
 li.ng-enter {
     -webkit-transition: 1s;
